@@ -1,5 +1,4 @@
 #include "main.h"
-#include "shell.h"
 
 /**
  * func_exit - Exits the shell
@@ -11,7 +10,7 @@ int func_exit(char **tokens)
 {
 	if (tokens[1])
 	{
-		exit(atoi(tokens[1]));
+		exit(_atoi(tokens[1]));
 	}
 
 	exit(0);
@@ -25,7 +24,7 @@ int func_exit(char **tokens)
  */
 int func_env(char **tokens)
 {
-	// TODO
+	/* TODO */
 }
 
 /**
@@ -36,7 +35,7 @@ int func_env(char **tokens)
  */
 int manip_env(char **tokens)
 {
-	// TODO
+	/* TODO */
 }
 
 /**
@@ -47,7 +46,7 @@ int manip_env(char **tokens)
  */
 int func_cd(char **tokens)
 {
-	// TODO
+	/* TODO */
 }
 
 /**
@@ -58,5 +57,5 @@ int func_cd(char **tokens)
  */
 int func_alias(char **tokens)
 {
-	// TODO
+	/* TODO */
 }

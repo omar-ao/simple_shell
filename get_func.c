@@ -1,5 +1,4 @@
 #include "main.h"
-#include "shell.h"
 
 /**
  * get_func - Gets a pointer to the function that corresponds to command
@@ -23,7 +22,7 @@ int (*get_func(char *cmd))(char **tokens)
 
 	while (i < 6)
 	{
-		if (strcmp(cmds[i].fixed, cmd) == 0)
+		if (_strcmp(cmds[i].fixed, cmd) == 0)
 		{
 			return (cmds[i].f);
 		}
