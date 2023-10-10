@@ -7,5 +7,6 @@
 #include <unistd.h>
 
 void prompt(void);
+void readline(void);
 
 #endif
