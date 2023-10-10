@@ -11,6 +11,7 @@ void prompt(void)
 
 	while (1)
 	{
+		write(STDOUT_FILENO, "($) ", 4);
 		nread = getline(&line, &n, stdin);
 		if (nread == -1)
 			break;
