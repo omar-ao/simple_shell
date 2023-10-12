@@ -4,7 +4,7 @@
 /**
  * tokenize - Generates tokens from the input string
  *
- * @s: Pointer to stream of characters
+ * @str: Pointer to stream of characters
  * Return: Pointer to array of tokens
  */
 char **tokenize(char *str)
@@ -40,15 +40,18 @@ char **tokenize(char *str)
  * @delims: Pointer to stream of delimeters
  * Return: Token
  */
-char *_strtok(char *str, char *delim)
+char *_strtok(char *s, char *delims)
 {
+	(void) s;
+	(void) delims;
 	/* TODO */
+	return (NULL);
 }
 
 /**
  * get_ntokens - Gets the number of tokens in string
  *
- * @s: Pointer to stream of characters
+ * @str: Pointer to stream of characters
  * Return: Number of tokens
  */
 int get_ntokens(char *str)

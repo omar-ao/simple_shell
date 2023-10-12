@@ -20,6 +20,7 @@ int main(void)
 
 /**
  * tests - Tests
+ * @s: something
  */
 void tests(char *s)
 {

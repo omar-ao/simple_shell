@@ -12,7 +12,6 @@ int func_exit(char **tokens)
 	{
 		exit(_atoi(tokens[1]));
 	}
-
 	exit(0);
 }
 
@@ -24,7 +23,16 @@ int func_exit(char **tokens)
  */
 int func_env(char **tokens)
 {
-	/* TODO */
+	int i;
+
+	(void) tokens;
+	for (i = 0; environ[i] != NULL; i++)
+	{
+		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
+		write(STDOUT_FILENO, "\n", 1);
+	}
+
+	return (0);
 }
 
 /**
@@ -35,7 +43,9 @@ int func_env(char **tokens)
  */
 int manip_env(char **tokens)
 {
+	(void) tokens;
 	/* TODO */
+	return (0);
 }
 
 /**
@@ -46,7 +56,9 @@ int manip_env(char **tokens)
  */
 int func_cd(char **tokens)
 {
+	(void) tokens;
 	/* TODO */
+	return (0);
 }
 
 /**
@@ -57,5 +69,7 @@ int func_cd(char **tokens)
  */
 int func_alias(char **tokens)
 {
+	(void) tokens;
 	/* TODO */
+	return (0);
 }

@@ -54,9 +54,10 @@ void handle(char **tokens)
 }
 
 /**
- * validate - Validates the input command
+ * is_valid - Validates the input command
  *
- * @tokens: Pointer to array of strings
+ * @cmd: Pointer to input command
+ * Return: 1 if valid otherwise 0
  */
 int is_valid(char *cmd)
 {
