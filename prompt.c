@@ -34,6 +34,7 @@ void prompt(void)
 void handle(char **tokens)
 {
 	int (*fixed)(char **);
+	char *full_path;
 
 	fixed = get_func(tokens[0]);
 	if (fixed == NULL)
@@ -45,6 +46,12 @@ void handle(char **tokens)
 		else
 		{
 			/* create path */
+			full_path = get_path(tokens);
+			if (full_path != NULL)
+			{
+				tokens[0] = full_path;
+				execute(tokens);
+			}
 		}
 	}
 	else
