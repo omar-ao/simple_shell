@@ -18,5 +18,6 @@ int func_env(char **tokens);
 int manip_env(char **tokens);
 int func_cd(char **tokens);
 int func_alias(char **tokens);
+int (*get_func(char *cmd))(char **tokens);
 
 #endif

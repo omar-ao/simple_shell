@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * main - entry point
  *
@@ -15,4 +16,18 @@ int main(void)
 		prompt();
 	}
 	return (0);
+}
+
+/**
+ * tests - Tests
+ */
+void tests(char *s)
+{
+	char **toks = tokenize(s);
+
+	while (*toks)
+	{
+		printf("%s\n", *toks);
+		toks++;
+	}
 }

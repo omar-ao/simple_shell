@@ -60,7 +60,7 @@ int _atoi(char *s)
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			num = 10 * num + (s[i] - '0');
-			if ((s[i + 1]) == ' ')
+			if (s[i + 1] == ' ')
 				break;
 		}
 	}

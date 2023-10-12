@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * tokenize - Generates tokens from the input string
@@ -6,8 +7,9 @@
  * @s: Pointer to stream of characters
  * Return: Pointer to array of tokens
  */
-char **tokenize(char *s)
+char **tokenize(char *str)
 {
+	char *s = _strdup(str);
 	char **tokens;
 	char *token;
 	int n, i = 0;
@@ -20,13 +22,14 @@ char **tokenize(char *s)
 		return (NULL);
 	}
 
-	token = _strtok(s, DELIMS);
+	token = strtok(s, DELIMS);
 	while (token)
 	{
 		tokens[i++] = _strdup(token);
-		token = _strtok(NULL, DELIMS);
+		token = strtok(NULL, DELIMS);
 	}
 	tokens[i] = NULL;
+	free(s);
 	return (tokens);
 }
 
@@ -37,10 +40,9 @@ char **tokenize(char *s)
  * @delims: Pointer to stream of delimeters
  * Return: Token
  */
-char *_strtok(char *s, char *delims)
+char *_strtok(char *str, char *delim)
 {
 	/* TODO */
-	return (NULL);
 }
 
 /**
@@ -49,16 +51,18 @@ char *_strtok(char *s, char *delims)
  * @s: Pointer to stream of characters
  * Return: Number of tokens
  */
-int get_ntokens(char *s)
+int get_ntokens(char *str)
 {
 	int n = 0;
 	char *token;
+	char *s = _strdup(str);
 
-	token = _strtok(s, DELIMS);
+	token = strtok(s, DELIMS);
 	while (token)
 	{
 		n++;
-		token = _strtok(NULL, DELIMS);
+		token = strtok(NULL, DELIMS);
 	}
+	free(s);
 	return (n);
 }
