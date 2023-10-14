@@ -5,9 +5,10 @@
  * given as a parameter
  *
  * @cmd: The command passed as a parameter
+ * @err_count: Error count
  * Return: Function pointer
  */
-int (*get_func(char *cmd))(char **tokens)
+int (*get_func(char *cmd))(char **tokens, int err_count)
 {
 	fixed_t cmds[] = {
 		{"exit", func_exit},

@@ -6,11 +6,24 @@
  * @tokens: Pointer to tokenised input string
  * Return: Status
  */
-int func_exit(char **tokens)
+int func_exit(char **tokens, int err_count)
 {
+	int exit_arg;
+	char *err_msg = "Illegal number";
 	if (tokens[1])
 	{
-		exit(_atoi(tokens[1]));
+		exit_arg = _atoi(tokens[1]);
+		if (exit_arg == -1)
+		{
+			/* handle error */
+			print_err(tokens[0], err_msg, err_count);
+			return (1);
+		}
+		else
+		{
+			err_count++;
+			exit(exit_arg);
+		}
 	}
 	exit(0);
 }
@@ -21,7 +34,7 @@ int func_exit(char **tokens)
  * @tokens: Pointer to tokenised input string
  * Return: 0
  */
-int func_env(char **tokens)
+int func_env(char **tokens, int err_count)
 {
 	int i;
 
@@ -31,7 +44,7 @@ int func_env(char **tokens)
 		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
 		write(STDOUT_FILENO, "\n", 1);
 	}
-
+	err_count++;
 	return (0);
 }
 
@@ -41,10 +54,11 @@ int func_env(char **tokens)
  * @tokens: Pointer to tokenised input string
  * Return: 0
  */
-int manip_env(char **tokens)
+int manip_env(char **tokens, int err_count)
 {
 	(void) tokens;
 	/* TODO */
+	err_count++;
 	return (0);
 }
 
@@ -54,10 +68,11 @@ int manip_env(char **tokens)
  * @tokens: Pointer to tokenised input string
  * Return: 0
  */
-int func_cd(char **tokens)
+int func_cd(char **tokens, int err_count)
 {
 	(void) tokens;
 	/* TODO */
+	err_count++;
 	return (0);
 }
 
@@ -67,9 +82,10 @@ int func_cd(char **tokens)
  * @tokens: Pointer to tokenised input string
  * Return: 0
  */
-int func_alias(char **tokens)
+int func_alias(char **tokens, int err_count)
 {
 	(void) tokens;
 	/* TODO */
+	err_count++;
 	return (0);
 }

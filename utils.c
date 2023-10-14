@@ -34,7 +34,8 @@ int _strcmp(char *s1, char *s2)
 {
 	int i, len, diff;
 
-	for (i = 0, len = _strlen(s1); i < len; i++)
+	len = _strlen(s2);
+	for (i = 0; i < len; i++)
 	{
 		diff = s1[i] - s2[i];
 		if (diff != 0)
@@ -46,7 +47,7 @@ int _strcmp(char *s1, char *s2)
 /**
  * _atoi - Converts a string to an integer
  * @s: string
- * Return: int
+ * Return: int or -1 if failure
  */
 int _atoi(char *s)
 {
@@ -62,6 +63,10 @@ int _atoi(char *s)
 			num = 10 * num + (s[i] - '0');
 			if (s[i + 1] == ' ')
 				break;
+		}
+		else
+		{
+			return (-1);
 		}
 	}
 

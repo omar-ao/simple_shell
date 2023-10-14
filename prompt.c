@@ -33,8 +33,10 @@ void prompt(void)
  */
 void handle(char **tokens)
 {
-	int (*fixed)(char **);
+	int (*fixed)(char **, int);
 	char *full_path;
+	char *err_msg;
+	static int err_count = 1;
 
 	fixed = get_func(tokens[0]);
 	if (fixed == NULL)
@@ -42,6 +44,7 @@ void handle(char **tokens)
 		if (is_valid(tokens[0]))
 		{
 			execute(tokens);
+			err_count++;
 		}
 		else
 		{
@@ -51,12 +54,18 @@ void handle(char **tokens)
 			{
 				tokens[0] = full_path;
 				execute(tokens);
+				err_count++;
+			}
+			else
+			{
+				err_msg = "not found";
+				print_err(tokens[0], err_msg, err_count++);
 			}
 		}
 	}
 	else
 	{
-		fixed(tokens);
+		fixed(tokens, err_count++);
 	}
 }
 

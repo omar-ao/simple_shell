@@ -10,14 +10,14 @@
 typedef struct fixed
 {
 	char *fixed;
-	int (*f)(char **tokens);
+	int (*f)(char **tokens, int);
 } fixed_t;
 
-int func_exit(char **tokens);
-int func_env(char **tokens);
-int manip_env(char **tokens);
-int func_cd(char **tokens);
-int func_alias(char **tokens);
-int (*get_func(char *cmd))(char **tokens);
+int func_exit(char **tokens, int);
+int func_env(char **tokens, int);
+int manip_env(char **tokens, int);
+int func_cd(char **tokens, int);
+int func_alias(char **tokens, int);
+int (*get_func(char *cmd))(char **tokens, int);
 
 #endif
