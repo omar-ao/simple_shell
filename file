@@ -1,2 +1,4 @@
-ls -l
-ls -a
+cd sd
+cd -
+cd
+cd -

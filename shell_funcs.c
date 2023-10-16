@@ -30,7 +30,7 @@ int func_exit(char **tokens, int err_count)
 
 /**
  * func_env - Prints the current environment
- *
+*
  * @tokens: Pointer to tokenised input string
  * Return: 0
  */
@@ -56,8 +56,17 @@ int func_env(char **tokens, int err_count)
  */
 int manip_env(char **tokens, int err_count)
 {
-	(void) tokens;
-	/* TODO */
+	char *name = tokens[1];
+	char *value = tokens[2];
+	if (!name && !value)
+	{
+		func_env(tokens, err_count);
+	}
+
+	if (_strcmp(tokens[0], "setenv") == 0)
+		_setenv(name, value);
+	if (_strcmp(tokens[0], "unsetenv") == 0)
+		_unsetenv(name);
 	err_count++;
 	return (0);
 }
@@ -70,9 +79,39 @@ int manip_env(char **tokens, int err_count)
  */
 int func_cd(char **tokens, int err_count)
 {
-	(void) tokens;
-	/* TODO */
+	char *old, *new;
+	char *pwd = "PWD", *oldpwd = "OLDPWD";
+
+	if (tokens[1] == NULL)
+		new = _getenv("HOME");
+	else if (_strcmp(tokens[1], "-") == 0)
+	{
+		new = _getenv("OLDPWD");
+		write(STDOUT_FILENO, new, _strlen(new));
+		write(STDOUT_FILENO, "\n", 1);
+	}
+	else
+		new = tokens[1];
+
+	old = getcwd(NULL, 0);
+	if (new == NULL)
+	{
+		perror("cd");
+		return (-1);
+	}
+	if (chdir(new) == -1)
+	{
+		perror("cd");
+		free(old);
+		return (-1);
+	}
+	/*TODO: use _setenv instead */
+	setenv(oldpwd, old, 1);
+	setenv(pwd, new, 1);
+
+	free(old);
 	err_count++;
+
 	return (0);
 }
 

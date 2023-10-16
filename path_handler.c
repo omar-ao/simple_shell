@@ -45,6 +45,10 @@ char *get_path(char **tokens)
 	path_dup = _strdup(path);
 	if (path_dup == NULL)
 		return (NULL);
+	/* handle persistant error that occurs when token[0] is long */
+	if (_strlen(cmd) > 9)
+		return (NULL);
+
 	token = strtok(path_dup, ":");
 	while (token)
 	{

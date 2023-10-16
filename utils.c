@@ -33,8 +33,9 @@ unsigned int _strspn(char *s, char *accept)
 int _strcmp(char *s1, char *s2)
 {
 	int i, len, diff;
+	int n = _strlen(s1), m = _strlen(s2);
 
-	len = _strlen(s2);
+	len = (n > m) ? n : m;
 	for (i = 0; i < len; i++)
 	{
 		diff = s1[i] - s2[i];

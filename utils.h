@@ -12,5 +12,9 @@ char *_strpbrk(char *s, char *accept);
 char *_strcat(char *dest, char *src);
 char *_strchr(char *s, char c);
 int _strncmp(char *s1, char *s2, int len);
+int _setenv(char *name, char *value);
+int _unsetenv(char *name);
+void modify_env(char *, char *);
+int get_env_index(char *);
 
 #endif
