@@ -5,8 +5,7 @@
  *
  * @name: Environment variable name
  * @value: Environment variable value
- * @overwrite: if overwrite is zero then the value of name is
- * not changed
+ *
  * Return: 0 on success or -1 on failure
  */
 int _setenv(char *name, char *value)
@@ -31,7 +30,7 @@ int _setenv(char *name, char *value)
 
 	sign = _strcat(name, "=");
 	var = _strcat(sign, value);
-	
+
 	for (i = 0; i < len; i++)
 		new_env[i] = env[i];
 	new_env[i] = _strdup(var);
@@ -43,6 +42,9 @@ int _setenv(char *name, char *value)
 }
 
 /**
+ * _unsetenv - deletes variable name from the environment
+ * @name: Environment variable name
+ * Return: 0 on Success or -1 on Error
  */
 int _unsetenv(char *name)
 {
@@ -53,6 +55,9 @@ int _unsetenv(char *name)
 }
 
 /**
+ * modify_env - edit existing variable with new value
+ * @name: Environment variable name
+ * @value: Environment variable value
  */
 void modify_env(char *name, char *value)
 {
@@ -67,6 +72,9 @@ void modify_env(char *name, char *value)
 }
 
 /**
+ * get_env_index - get the index of the variable in the enviroment
+ * @name: Environment variable name
+ * Return: index on Success
  */
 int get_env_index(char *name)
 {

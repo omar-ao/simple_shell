@@ -4,12 +4,14 @@
  * func_exit - Exits the shell
  *
  * @tokens: Pointer to tokenised input string
+ * @err_count: error count
  * Return: Status
  */
 int func_exit(char **tokens, int err_count)
 {
 	int exit_arg;
 	char *err_msg = "Illegal number";
+
 	if (tokens[1])
 	{
 		exit_arg = _atoi(tokens[1]);
@@ -30,8 +32,9 @@ int func_exit(char **tokens, int err_count)
 
 /**
  * func_env - Prints the current environment
-*
+ *
  * @tokens: Pointer to tokenised input string
+ * @err_count: error count
  * Return: 0
  */
 int func_env(char **tokens, int err_count)
@@ -52,12 +55,14 @@ int func_env(char **tokens, int err_count)
  * manip_env - Manipulates the environment
  *
  * @tokens: Pointer to tokenised input string
+ * @err_count: error count
  * Return: 0
  */
 int manip_env(char **tokens, int err_count)
 {
 	char *name = tokens[1];
 	char *value = tokens[2];
+
 	if (!name && !value)
 	{
 		func_env(tokens, err_count);
@@ -75,6 +80,7 @@ int manip_env(char **tokens, int err_count)
  * func_cd - Changes the current working directory
  *
  * @tokens: Pointer to tokenised input string
+ * @err_count: error count
  * Return: 0
  */
 int func_cd(char **tokens, int err_count)
@@ -119,6 +125,7 @@ int func_cd(char **tokens, int err_count)
  * func_alias - Handles the alis command
  *
  * @tokens: Pointer to tokenised input string
+ * @err_count: error count
  * Return: 0
  */
 int func_alias(char **tokens, int err_count)
