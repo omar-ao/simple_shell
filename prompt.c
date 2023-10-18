@@ -12,7 +12,7 @@ void prompt(void)
 
 	while (1)
 	{
-		write(STDOUT_FILENO, "($) ", 4);
+		write(STDOUT_FILENO, "$ ", 2);
 		nread = getline(&line, &n, stdin);
 		if (nread == -1)
 			break;
@@ -53,6 +53,7 @@ void handle(char **tokens)
 			if (full_path != NULL)
 			{
 				tokens[0] = full_path;
+
 				execute(tokens);
 				err_count++;
 			}

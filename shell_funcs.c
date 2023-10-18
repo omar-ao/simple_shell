@@ -42,6 +42,8 @@ int func_env(char **tokens, int err_count)
 	int i;
 
 	(void) tokens;
+	if (!environ)
+		return (1);
 	for (i = 0; environ[i] != NULL; i++)
 	{
 		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));

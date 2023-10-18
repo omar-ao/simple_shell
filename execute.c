@@ -4,8 +4,9 @@
  * execute - Executes the input command
  *
  * @args: Pointer to command line arguments
+ * Return: 0 on success
  */
-void execute(char **args)
+int execute(char **args)
 {
 	pid_t pid;
 	int status;
@@ -20,7 +21,7 @@ void execute(char **args)
 	{
 		if (execve(args[0], args, environ) == -1)
 		{
-			perror("Execve");
+			perror(args[0]);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -28,4 +29,5 @@ void execute(char **args)
 	{
 		wait(&status);
 	}
+	return (status);
 }

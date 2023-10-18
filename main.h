@@ -19,7 +19,7 @@ void readline(void);
 char **tokenize(char *);
 void handle(char **);
 int is_valid(char *);
-void execute(char **);
+int execute(char **);
 char *_getenv(char *);
 char *get_path(char **);
 void print_err(char *, char *, int);

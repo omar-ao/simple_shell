@@ -16,5 +16,7 @@ int _setenv(char *name, char *value);
 int _unsetenv(char *name);
 void modify_env(char *, char *);
 int get_env_index(char *);
+int handle_list(char **);
+int list_found(char **);
 
 #endif
