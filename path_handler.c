@@ -68,5 +68,7 @@ char *get_path(char **tokens)
 		}
 		token = strtok(NULL, ":");
 	}
+	free(path_dup);
+	free(token_dup);
 	return (NULL);
 }

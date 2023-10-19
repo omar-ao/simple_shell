@@ -41,12 +41,16 @@ char *_strcat(char *dest, char *src)
 
 	destlen = _strlen(dest);
 	srclen = _strlen(src);
-	result = dest;
+
+	result = malloc(destlen + srclen + 1);
+	if (!result)
+		return (NULL);
 
 	for (j = 0, i = 0; j < destlen; j++, i++)
 		*(result + i) = *(dest + j);
-	for (k = 0; k <= srclen; k++, i++)
+	for (k = 0; k < srclen; k++, i++)
 		*(result + i) = *(src + k);
+	result[i] = '\0';
 	return (result);
 }
 

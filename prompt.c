@@ -23,6 +23,7 @@ void prompt(void)
 	}
 	if (line != NULL)
 		free(line);
+	_free(tokens);
 	exit(EXIT_SUCCESS);
 }
 
@@ -83,4 +84,21 @@ int is_valid(char *cmd)
 	if (stat(cmd, &st) == 0)
 		return (1);
 	return (0);
+}
+
+/**
+ * _free - Frees tokens
+ *
+ * @tokens: Pointer to pointer to string
+ */
+void _free(char **tokens)
+{
+	int i = 0;
+
+	while (tokens[i])
+	{
+		free(tokens[i]);
+		i++;
+	}
+	free(tokens);
 }

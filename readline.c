@@ -21,4 +21,5 @@ void readline(void)
 		handle(tokens);
 	}
 	free(line);
+	_free(tokens);
 }

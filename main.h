@@ -23,7 +23,7 @@ int execute(char **);
 char *_getenv(char *);
 char *get_path(char **);
 void print_err(char *, char *, int);
-
-void tests(char *);
+void print_exiterr(char *cmd, char *err, int n, char *arg);
+void _free(char **);
 
 #endif

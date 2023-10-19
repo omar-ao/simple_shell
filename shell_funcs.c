@@ -18,12 +18,14 @@ int func_exit(char **tokens, int err_count)
 		if (exit_arg == -1)
 		{
 			/* handle error */
-			print_err(tokens[0], err_msg, err_count);
+			print_exiterr(tokens[0], err_msg, err_count, tokens[1]);
+			_free(tokens);
 			return (1);
 		}
 		else
 		{
 			err_count++;
+			_free(tokens);
 			exit(exit_arg);
 		}
 	}
@@ -113,9 +115,9 @@ int func_cd(char **tokens, int err_count)
 		free(old);
 		return (-1);
 	}
-	/*TODO: use _setenv instead */
-	setenv(oldpwd, old, 1);
-	setenv(pwd, new, 1);
+
+	_setenv(_strdup(oldpwd), old);
+	_setenv(_strdup(pwd), new);
 
 	free(old);
 	err_count++;

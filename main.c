@@ -17,18 +17,3 @@ int main(void)
 	}
 	return (0);
 }
-
-/**
- * tests - Tests
- * @s: something
- */
-void tests(char *s)
-{
-	char **toks = tokenize(s);
-
-	while (*toks)
-	{
-		printf("%s\n", *toks);
-		toks++;
-	}
-}
